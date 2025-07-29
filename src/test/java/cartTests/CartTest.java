@@ -14,6 +14,7 @@ import pages.FinishPage;
 import pages.InventoryPage;
 import pages.LoginPage;
 import support.DriverManager;
+import utilities.Constants;
 
 public class CartTest {
     private WebDriver driver;
@@ -30,7 +31,7 @@ public class CartTest {
     public void setUp() {
         DriverManager.initDriver();
         driver = DriverManager.getDriver();
-        driver.get("https://www.saucedemo.com/");
+        driver.get(Constants.SAUCEDEMO_URL);
 
         loginPage = new LoginPage(driver);
         inventoryPage = loginPage.clickLogin("standard_user", "secret_sauce");

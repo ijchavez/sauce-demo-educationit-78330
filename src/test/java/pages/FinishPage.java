@@ -17,11 +17,13 @@ public class FinishPage {
         this.driver = driver;
     }
     public void checkCompleteHeader(final String expectedHeader) {
+    	System.out.println(driver.findElement(COMPLETE_HEADER).getText());
     	Assert.assertEquals(driver.findElement(COMPLETE_HEADER).getText(), expectedHeader);
     	
     }
     
     public void checkCompleteText(final String expectedText) {
+    	System.out.println(driver.findElement(COMPLETE_TEXT).getText());
     	Assert.assertEquals(driver.findElement(COMPLETE_TEXT).getText(), expectedText);
     	
     }
