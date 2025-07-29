@@ -30,7 +30,7 @@ public class CartTest {
     public void setUp() {
         DriverManager.initDriver();
         driver = DriverManager.getDriver();
-        driver.get("https://www.saucedemo.com/v1/index.html");
+        driver.get("https://www.saucedemo.com/");
 
         loginPage = new LoginPage(driver);
         inventoryPage = loginPage.clickLogin("standard_user", "secret_sauce");
