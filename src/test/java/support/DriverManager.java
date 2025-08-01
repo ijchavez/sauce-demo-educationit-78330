@@ -23,8 +23,8 @@ public class DriverManager {
 				START_MAXIMIZED, DISABLE_INFOBARS, 
 				DISABLE_EXTENSIONS, DISABLE_NOTIFICATIONS,
 				DISABLE_GPU, INCOGNITO);
-		//chromeOptions.addArguments(HEADLESS);
-		//System.out.println("Corriendo modo headless");
+		chromeOptions.addArguments(HEADLESS);
+		System.out.println("Corriendo modo headless");
 		disableInfobarForChrome(chromeOptions);
 
 		return new ChromeDriver(chromeOptions);
