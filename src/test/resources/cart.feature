@@ -15,3 +15,13 @@ Feature: Compra de producto desde el carrito
     And confirma la orden
     Then debería ver el mensaje "THANK YOU FOR YOUR ORDER"
     And el texto "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
+
+ Scenario: Fallo en la compra por omisión del apellido en el formulario
+  Given que el usuario se encuentra en la página de login
+  When el usuario inicia sesión con usuario "standard_user" y contraseña "secret_sauce"
+  And agrega el producto "Sauce Labs Backpack" al carrito
+  And accede al carrito
+  And presiona el botón de Checkout
+  And completa el formulario de compra con nombre "Gerardo", apellido "" y código postal "1234"
+  And intentar confirmar la orden
+  Then debería ver el mensaje de error "Error: Last Name is required"

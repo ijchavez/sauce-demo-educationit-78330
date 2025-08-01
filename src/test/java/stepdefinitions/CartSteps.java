@@ -30,7 +30,7 @@ public class CartSteps {
 	public void que_el_usuario_se_encuentra_en_la_página_de_login() {
 	    // Write code here that turns the phrase above into concrete actions
 		driver = DriverManager.getDriver();
-        driver.get(Constants.SAUCEDEMO_URL);
+		driver.get(Constants.SAUCEDEMO_URL);
         faker = new Faker();
 	}
 
@@ -79,4 +79,26 @@ public class CartSteps {
 	public void el_texto(String expectedText) {
 		finishPage.checkCompleteText(expectedText);
 	}
+	
+	@When("completa el formulario de compra con nombre {string}, apellido {string} y código postal {string}")
+	public void completa_el_formulario_de_compra_con_nombre_apellido_y_código_postal(String name, String lastname, String zipCode) {
+	    // Write code here that turns the phrase above into concrete actions
+	    // Write code here that turns the phrase above into concrete actions
+    	checkoutPage.fillCheckoutFirstName(name);
+    	checkoutPage.fillCheckoutLastName(lastname);
+    	checkoutPage.fillCheckoutZipCode(zipCode);
+    	
+    	
+	}
+
+	@Then("debería ver el mensaje de error {string}")
+	public void debería_ver_el_mensaje_de_error(String errorMessage) {
+	    checkoutPage.checkErrorMessage(errorMessage);
+	}
+	
+	@When("intentar confirmar la orden")
+	public void intentar_confirmar_la_orden() {
+		checkoutPage.clickOnCheckoutButton();
+	}
+	
 }
